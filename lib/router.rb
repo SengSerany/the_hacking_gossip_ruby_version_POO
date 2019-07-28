@@ -8,15 +8,17 @@ class Router # Création class Router
 
 	def perform # Crée la méthode perform qui vas se lancer au début du programme
 		while true # boucle while true qui demande à l'utilisateur de faire un choix
+			system "clear"
 			puts "\n	Que veux tu faire?\n\n"
-			puts "	Tape “1“ pour créer un gossip\n	Tape “2“ pour quitter"
+			puts "	Tape '1' pour créer un gossip\n	Tape '2' pour voir la liste des gossips\n	Tape '3' pour quitter\n" # Instruction des choix
 			print "\n	> "
 			choix = gets.chomp.to_i # Champ de saisie portant le nom de : choix, on attend un Integer
 			case choix # Réaction selon la réponse dans la saisie
 			when 1
-				puts "\n	Tu as choisi de créer un gossip !"
 				@controller.create_gossip # lancement de la methode create_gossip dans la class Controller
-			when 2 # si l'utilisateur entre “2“
+			when 2
+				@controller.index_gossips # lancement de la methode create_gossip dans la class Controller
+			when 3 # si l'utilisateur entre “2“
 				puts "\n	A bientôt! :)"
 				sleep(1) # Patienter 1 seconde avant le break
 				break #Sortir de la boucle
